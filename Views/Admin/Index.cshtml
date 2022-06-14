@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Project_Management.Models.Objects.Projects>
+<div class="page-sidebar-inner">
+    <ul class="nav nav-tabs">
+        <li data-quizky-parentmenu="Projects" class="active open">
+            <a href="~/Admin/Index"><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Projects</p><span class="arrow"></span></a>
+
+        </li>
+        <li data-quizky-parentmenu="Tasks">
+            <a href="~/Admin/GetTasks"><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Tasks</p><span class="arrow"></span></a>
+
+        </li>
+        <li data-quizky-parentmenu="Users">
+            <a href="~/Admin/GetUsers""><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Users</p><span class="arrow"></span></a>
+
+        </li>
+    </ul>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.estimateTime)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.clientId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emloyee_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startDate)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.estimateTime)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.clientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emloyee_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })|
+                @Html.ActionLink("Estimation", "Estimate", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

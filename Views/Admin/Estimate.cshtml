@@ -1,0 +1,76 @@
+﻿@model Project_Management.Models.Objects.Projects
+<style>
+    .control-label {
+        color: red;
+        font-weight: bolder;
+    }
+</style>
+<div>
+    <h4>Projects</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startDate)
+        </dd>
+
+        <dt>
+            <label class="control-label">
+                @Html.DisplayNameFor(model => model.estimateTime)
+            </label>
+        </dt>
+
+        <dd>
+            <label class="control-label">
+                @Html.DisplayFor(model => model.estimateTime)
+            </label>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emloyee_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emloyee_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Project_Management.Models.Objects.Tasks>
+<div class="page-sidebar-inner">
+    <ul class="nav nav-tabs">
+        <li data-quizky-parentmenu="Projects">
+            <a href="~/Admin/Index"><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Projects</p><span class="arrow"></span></a>
+
+        </li>
+        <li data-quizky-parentmenu="Tasks" class="active open">
+            <a href="~/Admin/GetTasks"><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Tasks</p><span class="arrow"></span></a>
+
+        </li>
+        <li data-quizky-parentmenu="Users">
+            <a href="~/Admin/GetUsers" "><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Users</p><span class="arrow"></span></a>
+
+        </li>
+    </ul>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.project_Title)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estimatedTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee_AssignTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee_AssigenBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.project_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taskStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.project_Title)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estimatedTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee_AssignTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee_AssigenBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.project_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.taskStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

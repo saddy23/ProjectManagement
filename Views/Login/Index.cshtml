@@ -1,0 +1,182 @@
+﻿@{
+
+    Layout = null;
+}
+@model Project_Management.Models.DataManager.LoginManager
+<!--[if IE]> <link rel="stylesheet" type="text/css" href="~/assets/css/jquery-ui.css" /> <![endif]-->
+<link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style type="text/css">
+    body {
+        background-image: url('/Content/Images/ims-bg-lp_old.png');
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .panel-info {
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, .10) !important;
+    }
+
+    .panel-title {
+        margin-top: -7px;
+    }
+
+    .panel-heading {
+        padding: 14px 15px;
+    }
+
+    input.input-validation-error {
+        border: 1px solid #ccc;
+    }
+
+    .validation-summary-errors {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        padding: 6px;
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        margin-bottom: 20px;
+    }
+
+        .validation-summary-errors li {
+            margin-left: -26px;
+            list-style-type: none;
+        }
+
+    .btn-cta-primary {
+        background: #39C;
+        border: 2px solid #39C;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+        .btn-cta-primary:active {
+            color: #fff;
+        }
+
+    .dzone {
+        margin: 0 auto;
+        float: none;
+    }
+
+    .panel-info > .panel-heading {
+        padding: 20px 15px 15px;
+        line-height: normal;
+        font-weight: bold;
+    }
+
+    /*#LoginId,
+    #Password {
+        padding: 22px 16px;
+    }*/
+
+    .form-control {
+        height: 40px !important;
+    }
+
+    #frmTestVenue span {
+        padding: 12px 16px;
+    }
+
+    .checkbox {
+        padding: 0px !important;
+    }
+
+    .checkbox-inline {
+        padding-top: 0px;
+    }
+
+    .form-horizontal {
+        margin: 0 auto;
+    }
+
+    #frmTestVenue > div.form-group > div > input {
+        height: 44px;
+        font-weight: bold;
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+        #frmTestVenue > div.form-group > div > input:hover {
+            color: #fff;
+        }
+
+    .controls p {
+        margin: 16px auto 0px auto;
+        cursor: pointer;
+    }
+
+    .controls a {
+        color: #000;
+        text-decoration: none !important;
+    }
+
+    #copyright strong {
+        color: #000;
+    }
+
+    #copyright {
+        margin-top: 2vh;
+    }
+
+    .panel-info > .panel-heading {
+        color: #39C;
+        background-color: rgba(66, 139, 202, 0.28);
+        border-color: rgba(66, 139, 202, 0.28);
+    }
+
+    @@media (max-width:767px) {
+        .dzone {
+            padding: 0px;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="col-lg-5 col-md-6 col-sm-8 col-xs-12 dzone" style="margin-top:12vh;">
+
+        <div id="loginbox" class="mainbox">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign In</div>
+                </div>
+                <div style="padding:20px 15px" class="panel-body">
+                    @using (Html.BeginForm(null, null, new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "form-horizontal", @id = "frmTestVenue" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                @Html.TextBoxFor(m => m.LoginId, new { placeholder = "Login Id", @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.LoginId, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>                        
+                        <div style="margin-top: 20px; margin-bottom: 0px;" class="form-group">
+                            <div class="col-sm-12 controls">
+                                <input type="submit" value="Log in" class="btn btn-block btn-cta-primary" />
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

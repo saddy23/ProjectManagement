@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Project_Management.Models.Objects.User>
+<div class="page-sidebar-inner">
+    <ul class="nav nav-tabs">
+        <li data-quizky-parentmenu="Projects">
+            <a href="~/Admin/Index"><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Projects</p><span class="arrow"></span></a>
+
+        </li>
+        <li data-quizky-parentmenu="Tasks">
+            <a href="~/Admin/GetTasks"><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Tasks</p><span class="arrow"></span></a>
+
+        </li>
+        <li data-quizky-parentmenu="Users" class="active open">
+            <a href="~/Admin/GetUsers" "><span class=""></span><p><i aria-hidden="true" class="fa fa-user" style="padding-right:5px;"></i>Users</p><span class="arrow"></span></a>
+
+        </li>
+    </ul>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.createDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPasword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.createDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userPasword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.userId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.userId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.userId })
+        </td>
+    </tr>
+}
+
+</table>
